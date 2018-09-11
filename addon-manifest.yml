@@ -1,0 +1,19 @@
+releases:
+- name: example-addon
+  version: 0+dev.11
+
+addons:
+  - name: example-addon
+    jobs:
+    - name: number-picker
+      release: example-addon
+      properties:
+        number-picker:
+          interval: 5
+    include:
+      # deployments: [ zookeeper ]
+      stemcell:
+      - os: [ ubuntu-trusty, ubuntu-xenial ]
+      exclude:
+        jobs:
+        - {name: smoke-tests, release: cf}

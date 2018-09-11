@@ -1,0 +1,5 @@
+check process number-picker
+  with pidfile /var/vcap/sys/run/number-picker/pid
+  start program "/var/vcap/jobs/number-picker/bin/start.sh"
+  stop program "/var/vcap/jobs/number-picker/bin/stop.sh"
+  group vcap

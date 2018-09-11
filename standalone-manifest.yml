@@ -1,0 +1,33 @@
+---
+name: example-addon-standalone
+
+releases:
+- name: example-addon
+  version: latest
+
+stemcells:
+  - alias: "default"
+    os: "ubuntu-trusty"
+    version: "3586.40"
+
+update:
+  canaries: 1
+  max_in_flight: 2
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000
+
+instance_groups:
+  - name: example-addon
+    vm_type: default
+    stemcell: default
+    instances: 1
+    azs:
+    - z1
+    networks:
+    - name: default
+    jobs:
+      - name: number-picker
+        release: example-addon
+        properties:
+          number-picker:
+            interval: 5

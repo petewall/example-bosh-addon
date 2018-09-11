@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Starting number picker job"
+
+RUN_DIR=/var/vcap/sys/run/number-picker
+LOG_DIR=/var/vcap/sys/log/number-picker
+PIDFILE=${RUN_DIR}/pid
+
+mkdir -p $RUN_DIR $LOG_DIR
+chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+cd /var/vcap/packages/number-picker
+
+export NUMBER_PICKER_INTERVAL=<%=p('number-picker.interval')%>
+
+/sbin/start-stop-daemon \
+  --pidfile "$PIDFILE" \
+  --make-pidfile \
+  --chuid vcap:vcap \
+  --start \
+  --exec /var/vcap/packages/number-picker/number-picker \
+  >> "$LOG_DIR/number-picker.out.log"
+  2>> "$LOG_DIR/number-picker.err.log"

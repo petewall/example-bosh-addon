@@ -1,0 +1,14 @@
+---
+name: number-picker
+
+templates:
+  start.sh.erb: bin/start.sh
+  stop.sh.erb: bin/stop.sh
+
+packages:
+  - number-picker
+
+properties:
+  number-picker.interval:
+    description: 'The update interval'
+    default: 20

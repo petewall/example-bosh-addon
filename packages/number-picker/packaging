@@ -1,0 +1,4 @@
+set -e
+
+make
+cp number-picker ${BOSH_INSTALL_TARGET}/number-picker
