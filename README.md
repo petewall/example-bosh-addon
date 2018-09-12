@@ -13,7 +13,9 @@ I want to document a few things:
 3. How I tested
 4. Other tips
 
-Hopefully, this will be helpful for understanding how a BOSH _package_, _job_, _release_, _deployment_ and _runtime configs_ work in a very simple setup.  To really get this running in BOSH, you need everything I mentioned in the previous sentance.  I'll try to break it down piece-by-piece, but understand that we can't really test until it's all in place.
+I know this readme document is big.  There is no TL,DR because you have to R.  This doc is intended to be read from top to bottom, and not as a reference.  At least not the first time.
+
+Hopefully, this will be helpful for understanding how a BOSH _package_, _job_, _release_, _deployment_ and _runtime configs_ work in a very simple example.  To really get this running in BOSH, you need everything I mentioned in the previous sentance.  I'll try to break it down piece-by-piece, but understand that we can't really test until it's all in place.
 
 Anything that I want you to actually run will be in a code block, like this:
 
