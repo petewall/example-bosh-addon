@@ -15,7 +15,7 @@ I want to document a few things:
 
 I know this readme document is big.  There is no TL,DR because you have to R.  This doc is intended to be read from top to bottom, and not as a reference.  At least not the first time.
 
-Hopefully, this will be helpful for understanding how a BOSH _package_, _job_, _release_, _deployment_ and _runtime configs_ work in a very simple example.  To really get this running in BOSH, you need everything I mentioned in the previous sentance.  I'll try to break it down piece-by-piece, but understand that we can't really test until it's all in place.
+Hopefully, this will be helpful for understanding how a BOSH _package_, _job_, _release_, _deployment_ and _runtime configs_ work in a very simple example.  To really get this running in BOSH, you need everything I mentioned in the previous sentance.  I'll try to break it down piece-by-piece, but understand that we can't really test it until it's all in place.
 
 Anything that I want you to actually run will be in a code block, like this:
 
@@ -252,9 +252,10 @@ Troubleshooting
 When things go wrong, what to check?  Here's some ideas:
 
 * Check if the VM is running
-* Check monit
-  * `monit summary`
+  * `bosh vms`
 * Log into the VM and look at the following:
+  * `monit summary`
+  * `/var/vcap/sys/logs`
   * `/var/vcap/packages`
     * Make sure the files are there
     * Make sure binaries are compiled for the right platform
