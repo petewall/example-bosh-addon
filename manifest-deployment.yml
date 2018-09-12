@@ -2,7 +2,7 @@
 name: example-addon-standalone
 
 releases:
-- name: example-addon
+- name: example-addon-release
   version: latest
 
 stemcells:
@@ -17,7 +17,7 @@ update:
   update_watch_time: 1000-30000
 
 instance_groups:
-  - name: example-addon
+  - name: example-addon-group
     vm_type: default
     stemcell: default
     instances: 1
@@ -27,7 +27,7 @@ instance_groups:
     - name: default
     jobs:
       - name: number-picker
-        release: example-addon
+        release: example-addon-release
         properties:
           number-picker:
             interval: 5

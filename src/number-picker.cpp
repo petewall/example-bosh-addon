@@ -19,21 +19,17 @@ void run(int sleepInterval) {
     }
 }
 
-int main(int argc, const char* argv[]) {
+int main() {
     int sleepInterval = DEFAULT_SLEEP_INTERVAL;
 
     char* envVariableValue = getenv(SLEEP_INTERVAL_ENV_VARIABLE_NAME);
     if (envVariableValue != NULL) {
         sleepInterval = atoi(envVariableValue);
-    }
 
-    if (argc > 1) {
-        sleepInterval = atoi(argv[1]);
-    }
-
-    if (sleepInterval == 0) {
-        std::cerr << "Invalid sleep interval: " << argv[1] << std::endl;
-        return 1;
+        if (sleepInterval <= 0) {
+            std::cerr << "Invalid sleep interval: " << envVariableValue << std::endl;
+            return 1;
+        }
     }
     run(sleepInterval);
 }

@@ -9,8 +9,6 @@ PIDFILE=${RUN_DIR}/pid
 mkdir -p $RUN_DIR $LOG_DIR
 chown -R vcap:vcap $RUN_DIR $LOG_DIR
 
-cd /var/vcap/packages/number-picker
-
 export NUMBER_PICKER_INTERVAL=<%=p('number-picker.interval')%>
 
 /sbin/start-stop-daemon \
@@ -18,6 +16,6 @@ export NUMBER_PICKER_INTERVAL=<%=p('number-picker.interval')%>
   --make-pidfile \
   --chuid vcap:vcap \
   --start \
-  --exec /var/vcap/packages/number-picker/number-picker \
+  --exec /var/vcap/packages/number-picker-package/number-picker \
   >> "$LOG_DIR/number-picker.out.log"
   2>> "$LOG_DIR/number-picker.err.log"

@@ -6,7 +6,7 @@ templates:
   stop.sh.erb: bin/stop.sh
 
 packages:
-  - number-picker
+  - number-picker-package
 
 properties:
   number-picker.interval:
