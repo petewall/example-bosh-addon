@@ -271,9 +271,11 @@ When things go wrong, what to check?  Here's some ideas:
 TODOs
 -----
 
-1. Add a smoke-test errand job to show errands
-2. Pare down the deployment and runtime config manifests to remove any IAAS'y stuff that might be confusing.  I'll need to have some things in there, just to get the deployment to work, but I want to keep it as *lean* as possible.
-3. Maybe write numbers to a disk to help describes using persistent volumes.
-4. Maybe, eventually talk about building a tile using `tile-generator` and configuring through PCF Ops Manager?
-5. ???
-6. Profit
+1. Add a [pre-start](https://bosh.io/docs/job-lifecycle/) script
+2. Add a smoke-test errand job to show errands
+3. Add some large file into the blobstore
+4. Pare down the deployment and runtime config manifests to remove any IAAS'y stuff that might be confusing.  I'll need to have some things in there, just to get the deployment to work, but I want to keep it as *lean* as possible.
+5. Maybe write numbers to a disk to help describes using persistent volumes.
+6. Maybe, eventually talk about building a tile using `tile-generator` and configuring through PCF Ops Manager?
+7. ???
+8. Profit
