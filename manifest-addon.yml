@@ -11,9 +11,8 @@ addons:
         number-picker:
           interval: 5
     include:
-      # deployments: [ zookeeper ]
       stemcell:
-      - os: [ ubuntu-trusty, ubuntu-xenial ]
+      - os: ubuntu-xenial
     exclude:
       jobs:
       - {name: smoke-tests, release: cf}
