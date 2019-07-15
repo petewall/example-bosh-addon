@@ -1,0 +1,40 @@
+name: number-picker
+icon_file: resources/bender.png
+label: Number Picker Service
+description: A sample add on
+
+properties:
+
+
+forms:
+- name: number_picker-properties
+  label: Number Picker Properties
+  description: Properties for the number picker
+  properties:
+  - name: number_picker_interval
+    type: integer
+    label: Interval
+    description: The time between picking numbers
+
+packages:
+- name: example-addon-package
+  type: bosh-release
+  path: resources/example-addon.tgz
+
+runtime_configs:
+- name: number-picker-runtime-config
+  runtime_config:
+    releases:
+    - name: example-addon-release
+      version: 0+dev.4
+    addons:
+    - name: example-addon
+      jobs:
+      - name: number-picker
+        release: example-addon-release
+      properties:
+        number-picker:
+          interval: (( .properties.number_picker_interval.value ))
+      include:
+        deployments:
+        - my-canary-deployment
