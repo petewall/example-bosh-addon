@@ -76,14 +76,14 @@ My number is 282475249
 $ cd -
 ```
 
-Notice that this only uses the `src` directory
+Notice that this only uses the `src` directory.  Putting it here allows it to be picked up by BOSH packages.
 
 BOSH package
 ------------
 
-Up to this point, nothing has been BOSH specific.  The first part in understanding this repository is understanding the package.
+Up to this point, nothing has been BOSH specific.  The first part in understanding this repository is understanding the BOSH package.
 
-A BOSH package describes some artifact(s) that BOSH needs to put into the VM.  There's no logic on how to run it, or where to run it.  Just the files to include.
+A BOSH package describes the binary that BOSH needs to put onto the VM.  It does not contain any logic on how to run it, just the files to include.
 
 This repository has one package, named `number-picker`.
 
@@ -96,7 +96,7 @@ On the running vm, you can find the compiled binary at `/var/vcap/packages/numbe
 BOSH job
 --------
 
-Now that we have the package, we need to know how to run it.  The BOSH job is a process that needs to run, either one-time (called _errands_) or persistantly.
+Now that we have the package, we need to tell BOSH how to run it.  The BOSH job is a process that needs to run, either one-time (called _errands_) or persistantly.
 
 This repository has one job, also named `number-picker`.
 
@@ -270,6 +270,8 @@ When things go wrong, what to check?  Here's some ideas:
 
 TODOs
 -----
+
+Here's a few ideas of where this could be taken further:
 
 1. Add a [pre-start](https://bosh.io/docs/job-lifecycle/) script
 2. Add a smoke-test errand job to show errands
