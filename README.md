@@ -6,6 +6,8 @@ What's all this, then
 
 This is an example BOSH release that I wrote to help me understand how BOSH addons work.
 
+![BOSH package](images/everything.png)
+
 I want to document a few things:
 
 1. What's in this repository
@@ -28,6 +30,8 @@ These blocks assume that you have a BOSH environment already setup, either runni
 
 number-picker
 -------------
+
+![BOSH package](images/src.png)
 
 At the heart of this project is a very simple "service".  I wanted to make something with some really simple requirements:
 
@@ -81,6 +85,8 @@ Notice that this only uses the `src` directory.  Putting it here allows it to be
 BOSH package
 ------------
 
+![BOSH package](images/package.png)
+
 Up to this point, nothing has been BOSH specific.  The first part in understanding this repository is understanding the BOSH package.
 
 A BOSH package describes the binary that BOSH needs to put onto the VM.  It does not contain any logic on how to run it, just the files to include.
@@ -95,6 +101,8 @@ On the running vm, you can find the compiled binary at `/var/vcap/packages/numbe
 
 BOSH job
 --------
+
+![BOSH job](images/job.png)
 
 Now that we have the package, we need to tell BOSH how to run it.  The BOSH job is a process that needs to run, either one-time (called _errands_) or persistantly.
 
@@ -118,6 +126,8 @@ On the running vm, you can find the job scripts:
 
 BOSH release
 ------------
+
+![BOSH release](images/release.png)
 
 The BOSH release encapsulates our package and job into a single, versioned, bundle.  Each time you create a release, it gets a unique version number, which is very 12 factor.
 
